@@ -7,6 +7,7 @@ function Registrator(sto){
     //   return 'Please enter a valid registration';
     // }
 
+    reg = reg.toUpperCase();
     if(reg.startsWith('CA') || reg.startsWith('CY') || reg.startsWith('CJ')){
 
       if(regObj[reg] === undefined){
@@ -65,7 +66,7 @@ function Registrator(sto){
 
   }
   function clearObj(){
-    regObj = {};
+    return regObj = {};
   }
 
   function returnObj(){
