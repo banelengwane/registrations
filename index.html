@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Car registrations</title>
+    <link rel="stylesheet" href="css/registration_number.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+  </head>
+  <body>
+    Registration Numbers
+
+    <div class="row">
+      <span class="label-body" >Registration</span>
+      <input type="text" name="" value="" placeholder="enter a registration " class="registration" id="registration" />
+    </div>
+    <div class="row">
+      <form class="townSelect" name="post">
+        <select class="towns" name="towns" onchange="theChanger();">
+          <option value="alltowns">All Towns</option>
+          <option value="capetown">Cape Town</option>
+          <option value="bellville">Bellville</option>
+          <option value="paarl">Paarl</option>
+        </select>
+
+      </form>
+    </div>
+    <div>
+      <button class="button-primary addRegsBtn" on type="button" name="button">Add Registrations</button>
+      <button class="button-primary resetRegsBtn" on type="button" name="button">Reset</button>
+    </div>
+
+    <div class="  displayArea">
+      <ul></ul>
+    </div>
+  </body>
+  <script src="js/registration_number.js" charset="utf-8"></script>
+  <script src="js/registration_number-dom.js" charset="utf-8"></script>
+</html>
