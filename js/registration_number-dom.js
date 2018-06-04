@@ -9,13 +9,21 @@ var user = Registrator(regsInStorage);
 function carDealer(){
   var userReg = regElement.value;
   var userTown = selectedTown.options[selectedTown.selectedIndex].value;
-  user.regNumbers(userReg);
-  var regList = Object.keys(user.returnObj())[Object.keys(user.returnObj()).length - 1];
-  var regText = document.createElement('li');
-  regText.innerHTML = regList;
-  displayArea.appendChild(regText);
-  document.getElementById('registration').value = "";
-  localStorage.setItem('regsEntered', JSON.stringify(user.returnObj()));
+
+  if(userReg !== ''){
+    if(user.regNumbers(userReg)){
+      var regList = Object.keys(user.returnObj())[Object.keys(user.returnObj()).length - 1];
+      var regText = document.createElement('li');
+      regText.innerHTML = regList;
+      displayArea.appendChild(regText);
+      document.getElementById('registration').value = "";
+      localStorage.setItem('regsEntered', JSON.stringify(user.returnObj()));
+    }else{
+      displayArea.innerHTML = 'Please enter the correct format of the registration'
+    }
+  }else {
+    displayArea.innerHTML = 'Please Enter a Registration in this format: CJ 000-000';
+  }
 }
 addRegsBtn.addEventListener("click", carDealer);
 function filter(town){
