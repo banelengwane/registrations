@@ -12,6 +12,7 @@ function carDealer(){
 
   if(userReg !== ''){
     if(user.regNumbers(userReg)){
+      displayArea.innerHTML = "";
       var regList = Object.keys(user.returnObj())[Object.keys(user.returnObj()).length - 1];
       var regText = document.createElement('li');
       regText.innerHTML = regList;
@@ -19,10 +20,12 @@ function carDealer(){
       document.getElementById('registration').value = "";
       localStorage.setItem('regsEntered', JSON.stringify(user.returnObj()));
     }else{
-      displayArea.innerHTML = 'Please enter the correct format of the registration'
+      displayArea.innerHTML = 'Please enter the correct format of the registration';
+      document.getElementById('registration').value = "";
     }
   }else {
     displayArea.innerHTML = 'Please Enter a Registration in this format: CJ 000-000';
+    document.getElementById('registration').value = "";
   }
 }
 addRegsBtn.addEventListener("click", carDealer);
