@@ -8,24 +8,24 @@ function Registrator(sto){
     // }
 
     reg = reg.toUpperCase();
-    var regEx = /^[A-Z]{2}\s[0-9]{3}(\-)[0-9]{3}$/;
-    if(regEx.test(reg)){
-      if(reg.startsWith('CA') || reg.startsWith('CY') || reg.startsWith('CJ')){
+    var regEx = /^[A-Z]{2}\s[0-9]{3}(\-)[0-9]{3}$/
+
+      if( regEx.test(reg)  && (reg.startsWith('CA') || reg.startsWith('CY') || reg.startsWith('CJ'))){
 
         if(regObj[reg] === undefined){
           regObj[reg] = 0;
+
         }
-        if(regObj[reg] === 1){}
+        if(regObj[reg] === 1){
+          return false;
+        }
         else{
           regObj[reg] += 1;
+          return true;
         }
       }
-    }else{
-      return false;
     }
 
-
-  }
 
   function whichTown(town){
     var cpt = [];
@@ -86,5 +86,5 @@ function Registrator(sto){
     returnObj,
     clearObj,
     regNumbers
-  }
+  };
 }

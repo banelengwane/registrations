@@ -12,8 +12,8 @@ function carDealer(){
 
   if(userReg !== ''){
     if(user.regNumbers(userReg)){
-      displayArea.innerHTML = "";
-      var regList = Object.keys(user.returnObj())[Object.keys(user.returnObj()).length - 1];
+      var regList = Object.keys(user.returnObj() )[Object.keys(user.returnObj()).length - 1];
+      console.log(regList);
       var regText = document.createElement('li');
       regText.innerHTML = regList;
       displayArea.appendChild(regText);
