@@ -21,14 +21,10 @@
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 /*my own css */
-.place{
-	height: auto;
-	margin-left: 20px;
-	padding: 10px 0;
-	float: left;
-	width:30%;
+li{
+	list-style: none;
+	
 }
-
 body{
 	color: white;
 	background:
@@ -46,37 +42,9 @@ table{
 	width: 100%;
 }
 @media (max-width: 500px) {
-  .myName {
-    font-size: 50px;
-    text-align: center;
-    padding: 30px 0;
-  }
-  .sixText, .cityText, .mtext{
-    font-size: 12px;
-  }
-}
-.sixText, .cityText, .mtext{
-  font-size: 9px;
-}
-.myName {
-  font-size: 50px;
-  text-align: center;
-  padding: 100px 0;
-}
-.cityName{
-  font-size: 13px;
-  padding: 40px 0
+
 }
 
-.cityName{
-  text-align:center;
-  text-align: justify;
-  text-justify: inter-word;
-}
-.banelePic{
-  padding: 50px 0;
-  text-align: center;
-}
 .container {
   position: relative;
   width: 100%;
@@ -95,8 +63,7 @@ table{
   .container {
     width: 85%;
     padding: 0; }
-  .sixText, .cityText, .mtext{
-      font-size: 15px;}
+
 
 }
 

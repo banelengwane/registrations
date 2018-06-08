@@ -8,6 +8,7 @@ var regsInStorage = localStorage.getItem('regsEntered') ? JSON.parse(localStorag
 var user = Registrator(regsInStorage);
 
 
+
 function carDealer(){
   var userReg = regElement.value;
   var userTown = selectedTown.options[selectedTown.selectedIndex].value;
@@ -15,7 +16,8 @@ function carDealer(){
   if(userReg !== ''){
     if(user.regNumbers(userReg)){
       errors.innerHTML = '';
-      var regList = Object.keys(user.returnObj() )[Object.keys(user.returnObj()).length - 1];
+
+      var regList = Object.keys(user.returnObj())[Object.keys(user.returnObj()).length - 1];
       console.log(regList);
       var regText = document.createElement('li');
       regText.innerHTML = regList;
@@ -30,6 +32,7 @@ function carDealer(){
     errors.innerHTML = 'Please Enter a Registration in this format: CJ 000-000';
     document.getElementById('registration').value = "";
   }
+  window.location.reload();
 }
 addRegsBtn.addEventListener("click", carDealer);
 function filter(town){
@@ -57,3 +60,12 @@ function reseter(){
   localStorage.clear();
 }
 resetRegsBtn.addEventListener('click', reseter);
+
+window.addEventListener('load', function(){
+  var regs = Object.keys(user.returnObj());
+  for(var i =0; i <regs.length; i++) {
+    var regText = document.createElement('li');
+    regText.innerHTML = regs[i];
+    displayArea.appendChild(regText);
+  }
+})
