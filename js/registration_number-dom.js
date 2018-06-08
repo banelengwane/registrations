@@ -3,8 +3,10 @@ var addRegsBtn = document.querySelector(".addRegsBtn");
 var resetRegsBtn = document.querySelector(".resetRegsBtn");
 var displayArea = document.querySelector(".displayArea");
 var selectedTown = document.querySelector(".towns");
+var errors = document.querySelector('.errors');
 var regsInStorage = localStorage.getItem('regsEntered') ? JSON.parse(localStorage.getItem('regsEntered')) : {};
 var user = Registrator(regsInStorage);
+
 
 function carDealer(){
   var userReg = regElement.value;
@@ -12,6 +14,7 @@ function carDealer(){
 
   if(userReg !== ''){
     if(user.regNumbers(userReg)){
+      errors.innerHTML = '';
       var regList = Object.keys(user.returnObj() )[Object.keys(user.returnObj()).length - 1];
       console.log(regList);
       var regText = document.createElement('li');
@@ -20,16 +23,17 @@ function carDealer(){
       document.getElementById('registration').value = "";
       localStorage.setItem('regsEntered', JSON.stringify(user.returnObj()));
     }else{
-      displayArea.innerHTML = 'Please enter the correct format of the registration';
+      errors.innerHTML = 'Please enter the correct format of the registration';
       document.getElementById('registration').value = "";
     }
   }else {
-    displayArea.innerHTML = 'Please Enter a Registration in this format: CJ 000-000';
+    errors.innerHTML = 'Please Enter a Registration in this format: CJ 000-000';
     document.getElementById('registration').value = "";
   }
 }
 addRegsBtn.addEventListener("click", carDealer);
 function filter(town){
+  errors.innerHTML = '';
     for(var i =0; i <user.whichTown(town).length; i++) {
       var regText = document.createElement('li');
       regText.innerHTML = user.whichTown(town)[i];
@@ -49,6 +53,7 @@ function reseter(){
   user.clearObj();
   displayArea.innerHTML = '';
   document.getElementById('registration').value = "";
+  errors.innerHTML = '';
   localStorage.clear();
 }
 resetRegsBtn.addEventListener('click', reseter);
