@@ -32,7 +32,7 @@ function carDealer(){
     errors.innerHTML = 'Please Enter a Registration in this format: CJ 000-000';
     document.getElementById('registration').value = "";
   }
-  window.location.reload();
+  // window.location.reload();
 }
 addRegsBtn.addEventListener("click", carDealer);
 function filter(town){

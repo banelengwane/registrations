@@ -10,11 +10,11 @@ function Registrator(sto){
     reg = reg.toUpperCase();
     let simplifiedReg = reg.replace(/\W/g, "");
     var regEx = /^[A-Z]{2}\s[0-9]{3}(\-)[0-9]{3}$/
-    var reg2 = /^[A-Z]{2}\s[0-9]{0,6}$/
+    var reg2 = /^[A-Z]{2}[0-9]{0,6}$/
 
     let knownRegistrations = ['CA', 'CY', 'CJ'];
 
-    if(knownRegistrations.includes(simplifiedReg.substring(0,2))) {
+    if(reg2.test(simplifiedReg) && knownRegistrations.includes(simplifiedReg.substring(0,2))) {
        //Do The Things
        if(regObj[reg] === undefined){
          regObj[reg] = 0;
