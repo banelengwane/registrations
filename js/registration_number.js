@@ -12,20 +12,26 @@ function Registrator(sto){
     var regEx = /^[A-Z]{2}\s[0-9]{3}(\-)[0-9]{3}$/
     var reg2 = /^[A-Z]{2}\s[0-9]{0,6}$/
 
-      if((regEx.test(reg) && (reg.startsWith('CA') || reg.startsWith('CY') || reg.startsWith('CJ'))) || (reg2.test(reg) && (reg.startsWith('CA') || reg.startsWith('CY') || reg.startsWith('CJ')))){
+    let knownRegistrations = ['CA', 'CY', 'CJ'];
 
-        if(regObj[reg] === undefined){
-          regObj[reg] = 0;
+    if(knownRegistrations.includes(simplifiedReg.substring(0,2))) {
+       //Do The Things
+       if(regObj[reg] === undefined){
+         regObj[reg] = 0;
 
-        }
-        if(regObj[reg] === 1){
-          return false;
-        }
-        else{
-          regObj[reg] += 1;
-          return true;
-        }
-      }
+       }
+       if(regObj[reg] === 1){
+         return false;
+       }
+       else{
+         regObj[reg] += 1;
+         return true;
+       }
+    }
+      // if((regEx.test(reg) && (reg.startsWith('CA') || reg.startsWith('CY') || reg.startsWith('CJ'))) || (reg2.test(reg) && (reg.startsWith('CA') || reg.startsWith('CY') || reg.startsWith('CJ')))){
+      //
+      //
+      // }
     }
 
 

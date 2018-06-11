@@ -14,6 +14,9 @@ li {
   border-color: black;
   font-size: 20px;
   border-width: thick;
+  padding: 5px;
+  margin: 5px 5px;
+
 }
 
 .topNav{
