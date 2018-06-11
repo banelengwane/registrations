@@ -9,7 +9,7 @@ function Registrator(sto){
 
     reg = reg.toUpperCase();
     var regEx = /^[A-Z]{2}\s[0-9]{3}(\-)[0-9]{3}$/
-    var reg2 = /^[A-Z]{2}\s[0-9]$/
+    var reg2 = /^[A-Z]{2}\s[0-9]{0,6}$/
 
       if((regEx.test(reg) && (reg.startsWith('CA') || reg.startsWith('CY') || reg.startsWith('CJ'))) || (reg2.test(reg) && (reg.startsWith('CA') || reg.startsWith('CY') || reg.startsWith('CJ')))){
 
