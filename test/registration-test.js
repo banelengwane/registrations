@@ -61,4 +61,24 @@ describe('The Registration function' , function(){
     user_regis.regNumbers('');
     assert.deepEqual(user_regis.whichTown('alltowns'), []);
   });
+
+  it('Should take in a registrations and return all in All Towns, then clear the data in the object' , function(){
+    var Obj = {};
+    var user_regis = Registrator(Obj);
+    user_regis.regNumbers('CY 123-123');
+    user_regis.regNumbers('CJ 456-456');
+    user_regis.regNumbers('CA 999-999');
+    assert.deepEqual(user_regis.whichTown('alltowns'), ['CY 123-123', 'CJ 456-456', 'CA 999-999']);
+    assert.deepEqual(user_regis.clearObj(), {})
+  });
+
+  it('Should pass in an object with information and add another registration, all registrations should appear on the alltowns' , function(){
+    var Obj = {'CA 123-123': 1, 'CY 555-969': 1};
+    var user_regis = Registrator(Obj);
+    user_regis.regNumbers('CA 999-999');
+    user_regis.regNumbers('CJ 456-456');
+    user_regis.regNumbers('CA 999-999');  
+    assert.deepEqual(user_regis.whichTown('alltowns'), ['CA 123-123', 'CY 555-969', 'CA 999-999', 'CJ 456-456']);
+
+  });
 });
