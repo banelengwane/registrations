@@ -77,8 +77,17 @@ describe('The Registration function' , function(){
     var user_regis = Registrator(Obj);
     user_regis.regNumbers('CA 999-999');
     user_regis.regNumbers('CJ 456-456');
-    user_regis.regNumbers('CA 999-999');  
+    user_regis.regNumbers('CA 999-999');
     assert.deepEqual(user_regis.whichTown('alltowns'), ['CA 123-123', 'CY 555-969', 'CA 999-999', 'CJ 456-456']);
+
+  });
+  it('Should not display registration that are not included on the towns to be displayed' , function(){
+    var Obj = {'CA 123-123': 1, 'CY 555-969': 1};
+    var user_regis = Registrator(Obj);
+    user_regis.regNumbers('CA 999-999');
+    user_regis.regNumbers('can 6666');
+    user_regis.regNumbers('caw 6666');
+    assert.deepEqual(user_regis.whichTown('alltowns'), ['CA 123-123', 'CY 555-969', 'CA 999-999']);
 
   });
 });
