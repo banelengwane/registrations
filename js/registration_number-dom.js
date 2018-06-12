@@ -13,7 +13,7 @@ function carDealer(){
   var userReg = regElement.value;
   var userTown = selectedTown.options[selectedTown.selectedIndex].value;
 
-  if(userReg !== ''){
+  if(Number.isNaN(Number(userReg))){
     if(user.regNumbers(userReg)){
       errors.innerHTML = '';
 
@@ -24,8 +24,11 @@ function carDealer(){
       displayArea.appendChild(regText);
       document.getElementById('registration').value = "";
       localStorage.setItem('regsEntered', JSON.stringify(user.returnObj()));
-    }else{
-      errors.innerHTML = 'Please enter the correct format of the registration';
+    }else if(user.regNumbers(userReg) === undefined){
+      errors.innerHTML = 'Please Enter a Registration in this format: CJ 000-000';
+      document.getElementById('registration').value = "";
+    }else if(!user.regNumbers(userReg)){
+      errors.innerHTML = 'Your registration has already been added, enter another registration';
       document.getElementById('registration').value = "";
     }
   }else {
